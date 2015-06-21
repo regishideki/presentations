@@ -1,0 +1,71 @@
+h1, h2, h3 {
+  font-family: 'helvetica';
+  font-weight: normal;
+}
+
+h1 {
+  text-shadow: 2px 2px 1px #333;
+  color: #2269A8;
+  font-weight: italic;
+}
+
+ul {
+  margin: 30px;
+}
+
+p {
+  margin: 1em;
+}
+
+.title {
+  font-size: 70px;
+  color: #2269A8
+}
+
+.footer {
+  position: absolute;
+  bottom: 3em;
+  left:0;
+  right:0;
+}
+
+.logo img {
+  height: 2em;
+}
+
+.image--pinball img {
+  margin-top: 2em;
+  margin-left: 3em;
+  float: left;
+}
+
+.image--phd img {
+  display: block;
+  width: 27em;
+  margin: auto;
+}
+
+.image--candle img {
+  display: block;
+  width: 27em;
+  margin: auto;
+}
+
+.remark-code, .remark-inline-code { 
+  font-family: 'Ubuntu Mono'; 
+}
+
+/*
+.low_utility {
+  background: rgba(255, 0, 0, 0.7)
+}
+
+.medium_utility {
+  background: rgba(256, 128, 0, 0.7)
+}
+
+.high_utility {
+  background: rgba(0, 0, 256, 0.7)
+}
+*/
+
