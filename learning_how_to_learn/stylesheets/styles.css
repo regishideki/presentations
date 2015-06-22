@@ -13,13 +13,8 @@ ul {
   margin: 30px;
 }
 
-p {
-  margin: 1em;
-}
-
-.title {
-  font-size: 70px;
-  color: #2269A8
+.center h1 {
+  font-size: 4em
 }
 
 .footer {
