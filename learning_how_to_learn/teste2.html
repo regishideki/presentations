@@ -4,21 +4,30 @@
     <title>Learning how to learn</title>
     <meta charset="utf-8">
     <script src="javascripts/lib/jquery.min.js"/></script>
-<!--     <script src="javascripts/lib/remark.min.js"/></script>
-    <script src="javascripts/initializer.js" async/></script> -->
-    <link rel="stylesheet" type="text/css" href="stylesheets/styles.css" />
+    <style>
+      li {
+        font-size: 10em;
+      }
+    </style>
   </head>
   
 
   <body>
-  <link rel="import" href="http://example.com/elements.html">
-  <div id="source2">
   
+  <div>
+    <ul>
+      <li>item 1</li>
+      <li>
+        Item 2
+        <ul>
+          <l1>item 2.1</l1>
+          <l1>item 2.2</l1>
+        </ul>
+      </li>
+    </ul>  
   </div>
     
   </body>
 
-  <script>
-      $("#source2").load("markdown.html"); 
-  </script>
+
 </html>
