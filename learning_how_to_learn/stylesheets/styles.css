@@ -46,6 +46,10 @@ ul {
   margin: auto;
 }
 
+.image--dummies img {
+  width: 3em;
+}
+
 .remark-code, .remark-inline-code { 
   font-family: 'Ubuntu Mono'; 
 }
