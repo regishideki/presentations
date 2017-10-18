@@ -33,8 +33,7 @@ let c = 100000
 
 
 # Ex Commands
-Example using normal mode to append something at the end of a line
-ranges, commands(?)
+- Example using normal mode to append something at the end of a line
 
 let a = 1
 let b = 10
@@ -47,6 +46,14 @@ g the same as global
 v the same as global! or globalv
 
 Examples:
+- append missing ";" add the end of the lets:
+
+let a = 1
+let b = 10;
+let c = 100000
+
+:g/let .*[^;]$/norm A;
+
 Using register append to copy a series of lines
 defining a range relative to pattern
 
