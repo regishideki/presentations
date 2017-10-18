@@ -1,0 +1,166 @@
+# Visual Mode
+Usually not necessary
+
+Exceptions:
+- Doing something in a few lines
+
+let a = 1
+let b = 10
+let c = 100000
+
+- Copy and replace
+lead_id = 1
+application_id = 2
+
+PreQualification.new(application_id)
+
+warning: it causes side effect
+
+- Restricting a command
+
+let a = 1
+let b = 10
+let c = 100000
+
+
+# Dot Command
+It is like mini macros
+
+Ex:
+let a = 1
+let b = 10
+let c = 100000
+
+
+# Ex Commands
+Example using normal mode to append something at the end of a line
+ranges, commands(?)
+
+let a = 1
+let b = 10
+let c = 100000
+
+
+# Global Commands
+:<range>global<!>/<pattern>/<cmd>
+g the same as global
+v the same as global! or globalv
+
+Examples:
+Using register append to copy a series of lines
+defining a range relative to pattern
+
+
+# Macros
+recording a macro: q<register><commands>q
+executing a macro: @<register>
+executing last macro: @@
+
+Example:
+Introducing a new module level in Ruby
+Series of numbers
+
+
+# Find/Replace
+\v at the beginning when working with regex
+\zs start of the match
+\ze end of the match
+\s match space or  tab
+\_s match space, tab or new line
+
+motion:
+gn operates in the pattern
+
+flags:
+e makes the cursos be positioned at the end of the pattern
+c with confirmation
+
+Examples:
+- with default
+- with dot command
+- with gn
+
+# argdo, cfdo, etc
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+# Marks
+m<letter> add a mark
+`<letter> go to mark
+'<letter> first no blank character of mark
+
+lower case: specific to a buffer
+upper case: all buffers
+
+automatic marks
+_ first non-blank character
+gv last visual selection
+gi last inserting
+
+# Registers
+:reg
+list of registers
+
+using:
+lower case: new register
+upper case: append register
+"<register><operation>
+
+access:
+"<register>p in normal mode
+<C-r><register> in insert mode
+@<register> in Ex Mode to pass a register as reference (not value)
+
+special registers:
+" unnamed register
+0 yank register
+1-9 history of changes and deletions
+_d blackhole
++ clipboard (cut, copy, paste - OS specific)
+* primary (middle mouse button - OS specific)
+= expression register (usefull only in insert mode with <C-r>=
+% name of the current file
+# name of alternate file
+. last inserted text
+: last ex command
+/ last search pattern
+
+
+we can use it with Ex Commands:
+:delete <register>
+:put <register>
+etc
+
+
+# Others
+<C-a> increase a number
+<C-x> decrease a number
+application1 = FactoryGirl.create(:application)
+
+xp transpose character
+Matehus
+
+substitute a word to another:
+lead_id = 1
+app_id = 2
+PreQualification.new.run(lead_id)
+Eligibility.new.run(app_id)
+
+options:
+using blackhole register
+using yank register
+using visual selection (has a side-effect)
+using ciw<C-r>0<Esc> (saves in dot command)
+
