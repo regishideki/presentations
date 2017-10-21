@@ -1,9 +1,12 @@
+add in your vimrc if you want:
+map <Leader>x :exec getline(".")<cr>
+echo "Hello World"
+
 # Visual Mode
 Usually not necessary
 
 Exceptions:
 - Doing something in a few lines
-
 let a = 1
 let b = 10
 let c = 100000
@@ -32,18 +35,37 @@ let b = 10
 let c = 100000
 
 
+# Find/Replace
+- c tag to confirm, last search, dot command
+att
+pattern
+att
+
+- e tag and gn command
+att
+atts
+
+\v at the beginning when working with regex
+\zs start of the match
+def (a, b)
+
+\ze end of the match
+\s match space or tab
+\_s match space, tab or new line
+
+
 # Ex Commands
+- all normal commands: yank, delete, move, print, etc
+
 - Example using normal mode to append something at the end of a line
 
+:63,65norm A;
 let a = 1
 let b = 10
 let c = 100000
 
 
 # Global Commands
-:<range>global<!>/<pattern>/<cmd>
-g the same as global
-v the same as global! or globalv
 
 Examples:
 - append missing ";" add the end of the lets:
@@ -52,11 +74,47 @@ let a = 1
 let b = 10;
 let c = 100000
 
-:g/let .*[^;]$/norm A;
+:73,75g/let .*[^;]$/norm A;
+
+perform something between two patterns
+:g/^startlist/+1,/^endlist/-1 sort
+
+startlist
+  'grape'
+  'coconut'
+  'banana'
+  'strawberry',
+  'lemon'
+endlist
+
+startlist
+  'France'
+  'Brazil'
+  'Japan'
+  'Senegal'
+  'Australia'
+endlist
 
 Using register append to copy a series of lines
 defining a range relative to pattern
 
+reset register a: qaq
+/\vdocument_upload_url\(\zs'\w*'\ze\)
+
+attribute :appraisal_upload_url do
+  document_upload_url('appraisal')
+end
+
+attribute :other_vehicle_documents_upload_url do
+  document_upload_url('other_vehicle_documents')
+end
+
+attribute :vehicle_inqueries_upload_url do
+  document_upload_url('vehicle_inqueries')
+end
+
+global!, globalv or only v: do with the lines that
+does not match the pattern
 
 # Macros
 recording a macro: q<register><commands>q
@@ -68,19 +126,6 @@ Introducing a new module level in Ruby
 Series of numbers
 
 
-# Find/Replace
-\v at the beginning when working with regex
-\zs start of the match
-\ze end of the match
-\s match space or  tab
-\_s match space, tab or new line
-
-motion:
-gn operates in the pattern
-
-flags:
-e makes the cursos be positioned at the end of the pattern
-c with confirmation
 
 Examples:
 - with default
