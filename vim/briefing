@@ -1,6 +1,45 @@
-add in your vimrc if you want:
+# Introduction
+To download this presentation:
+curl <link here> > vim-presentation
+
+Source: Practical Vim: Edit Text at the Speed of Thought - Drew Neil
+
+To run some commands easily:
 map <Leader>x :exec getline(".")<cr>
+
+Example:
 echo "Hello World"
+
+
+# Registers
+:reg
+list of registers
+
+storing:
+"{register}{operation}
+lower case: new register
+upper case: append register
+
+accessing:
+"{register}p in normal mode
+<C-r>{register} in insert mode
+@{register} in Ex Mode to pass a register as reference (not value)
+\=@{register} in substitute command
+
+special registers:
+" unnamed register
+0 yank register
+1-9 history of changes and deletions
+_d blackhole
++ clipboard (cut, copy, paste - OS specific)
+* primary (middle mouse button - OS specific)
+= expression register (usefull only in insert mode with <C-r>=
+% name of the current file
+# name of alternate file
+. last inserted text
+: last ex command
+/ last search pattern
+
 
 # Visual Mode
 Usually not necessary
@@ -19,6 +58,10 @@ PreQualification.new(application_id)
 
 warning: it causes side effect
 
+Other options:
+blackhole register: "_diw<Shift>p
+yank register: ciw<C-r>0<Esc>
+
 - Restricting a command
 
 let a = 1
@@ -36,7 +79,7 @@ let c = 100000
 
 
 # Find/Replace
-- c tag to confirm, last search, dot command
+- c tag to confirm, last search (or / register), dot command
 att
 pattern
 att
@@ -47,7 +90,7 @@ atts
 
 \v at the beginning when working with regex
 \zs start of the match
-def (a, b)
+
 
 \ze end of the match
 \s match space or tab
@@ -55,7 +98,7 @@ def (a, b)
 
 
 # Ex Commands
-- all normal commands: yank, delete, move, print, etc
+- all normal commands: yank, delete, move, print, etc (we can use it with registers)
 
 - Example using normal mode to append something at the end of a line
 
@@ -66,6 +109,7 @@ let c = 100000
 
 
 # Global Commands
+Ex commands with pattern
 
 Examples:
 - append missing ";" add the end of the lets:
@@ -80,19 +124,19 @@ perform something between two patterns
 :g/^startlist/+1,/^endlist/-1 sort
 
 startlist
-  'grape'
-  'coconut'
-  'banana'
-  'strawberry',
-  'lemon'
+'grape'
+'coconut'
+'banana'
+'strawberry'
+'lemon'
 endlist
 
 startlist
-  'France'
-  'Brazil'
-  'Japan'
-  'Senegal'
-  'Australia'
+'France'
+'Brazil'
+'Japan'
+'Senegal'
+'Australia'
 endlist
 
 Using register append to copy a series of lines
@@ -116,6 +160,7 @@ end
 global!, globalv or only v: do with the lines that
 does not match the pattern
 
+
 # Macros
 recording a macro: q<register><commands>q
 executing a macro: @<register>
@@ -126,13 +171,7 @@ Introducing a new module level in Ruby
 Series of numbers
 
 
-
-Examples:
-- with default
-- with dot command
-- with gn
-
-# argdo, cfdo, etc
+# argdo, cfdo, cdo, bufdo etc
 
 
 
@@ -148,71 +187,16 @@ Examples:
 
 
 
-# Marks
-m<letter> add a mark
-`<letter> go to mark
-'<letter> first no blank character of mark
 
-lower case: specific to a buffer
-upper case: all buffers
-
-automatic marks
-_ first non-blank character
-gv last visual selection
-gi last inserting
-
-# Registers
-:reg
-list of registers
-
-using:
-lower case: new register
-upper case: append register
-"<register><operation>
-
-access:
-"<register>p in normal mode
-<C-r><register> in insert mode
-@<register> in Ex Mode to pass a register as reference (not value)
-
-special registers:
-" unnamed register
-0 yank register
-1-9 history of changes and deletions
-_d blackhole
-+ clipboard (cut, copy, paste - OS specific)
-* primary (middle mouse button - OS specific)
-= expression register (usefull only in insert mode with <C-r>=
-% name of the current file
-# name of alternate file
-. last inserted text
-: last ex command
-/ last search pattern
-
-
-we can use it with Ex Commands:
-:delete <register>
-:put <register>
-etc
 
 
 # Others
 <C-a> increase a number
-<C-x> decrease a number
+  <C-x> decrease a number
 application1 = FactoryGirl.create(:application)
 
-xp transpose character
-Matehus
+  xp transpose character
+  Matehus
 
-substitute a word to another:
-lead_id = 1
-app_id = 2
-PreQualification.new.run(lead_id)
-Eligibility.new.run(app_id)
 
-options:
-using blackhole register
-using yank register
-using visual selection (has a side-effect)
-using ciw<C-r>0<Esc> (saves in dot command)
 
