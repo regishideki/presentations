@@ -60,7 +60,7 @@ warning: it causes side effect
 
 Other options:
 blackhole register: "_diw<Shift>p
-yank register: ciw<C-r>0<Esc>
+yank register (preserves dot command): ciw<C-r>0<Esc>
 
 - Restricting a command
 
@@ -89,20 +89,21 @@ att
 atts
 
 \v at the beginning when working with regex
+
 \zs start of the match
-
-
 \ze end of the match
 \s match space or tab
 \_s match space, tab or new line
 
 
 # Ex Commands
+Format: :[range|current_line]{command}
+
 - all normal commands: yank, delete, move, print, etc (we can use it with registers)
 
 - Example using normal mode to append something at the end of a line
 
-:63,65norm A;
+:.+1,.+3norm A;
 let a = 1
 let b = 10
 let c = 100000
@@ -110,15 +111,15 @@ let c = 100000
 
 # Global Commands
 Ex commands with pattern
+Format: :[range|all_lines]g/{pattern}/{command}
 
 Examples:
 - append missing ";" add the end of the lets:
 
+:.+1,.+3g/let .*[^;]$/norm A;
 let a = 1
 let b = 10;
 let c = 100000
-
-:73,75g/let .*[^;]$/norm A;
 
 perform something between two patterns
 :g/^startlist/+1,/^endlist/-1 sort
@@ -140,21 +141,24 @@ startlist
 endlist
 
 Using register append to copy a series of lines
-defining a range relative to pattern
 
 reset register a: qaq
-/\vdocument_upload_url\(\zs'\w*'\ze\)
+/\vhas_one :\w*
+:g//y A
 
-attribute :appraisal_upload_url do
-  document_upload_url('appraisal')
-end
+%s//\=setreg('A', submatch(0))/n
 
-attribute :other_vehicle_documents_upload_url do
-  document_upload_url('other_vehicle_documents')
-end
+class ApplicationRepresenter
+  has_one :requester
 
-attribute :vehicle_inqueries_upload_url do
-  document_upload_url('vehicle_inqueries')
+  attribute :purpose
+
+  has_one :banco_pan_application
+  has_one :discard
+
+  has_many :documents
+
+  has_one :scheduled_partner
 end
 
 global!, globalv or only v: do with the lines that
@@ -162,8 +166,8 @@ does not match the pattern
 
 
 # Macros
-recording a macro: q<register><commands>q
-executing a macro: @<register>
+recording a macro: q{register}{commands}q
+executing a macro: @{register}
 executing last macro: @@
 
 Example:
@@ -176,27 +180,14 @@ Series of numbers
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
+# Others
 
 
 # Others
 <C-a> increase a number
-  <C-x> decrease a number
+<C-x> decrease a number
 application1 = FactoryGirl.create(:application)
 
-  xp transpose character
-  Matehus
+<C-r><C-w> use current word in find or commands
 
-
-
+Marks, vimscript, vimgrep
