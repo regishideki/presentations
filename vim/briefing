@@ -170,17 +170,20 @@ recording a macro: q{register}{commands}q
 executing a macro: @{register}
 executing last macro: @@
 
-Example:
-Introducing a new module level in Ruby
-Series of numbers
+sequential vs parallel
 
+let a = 1
+let b = 10
+let c = 100000
+let d = 100
+let e = 10000000
+
+series of numbers
 
 # argdo, cfdo, cdo, bufdo etc
 
 
 
-
-# Others
 
 
 # Others
