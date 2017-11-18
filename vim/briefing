@@ -8,7 +8,7 @@ To run some commands easily:
 map <Leader>x :exec getline(".")<cr>
 
 Example:
-echo "Hello World"
+echo 1 + 2
 
 
 # Registers
@@ -22,9 +22,8 @@ upper case: append register
 
 accessing:
 "{register}p in normal mode
-<C-r>{register} in insert mode
+<C-r>{register} in insert mode, ex mode, etc
 @{register} in Ex Mode to pass a register as reference (not value)
-\=@{register} in substitute command
 
 special registers:
 " unnamed register
@@ -39,6 +38,15 @@ _d blackhole
 . last inserted text
 : last ex command
 / last search pattern
+
+
+# Dot Command
+It is like mini macros
+
+Ex:
+let a = 1
+let b = 10
+let c = 100000
 
 
 # Visual Mode
@@ -64,15 +72,6 @@ yank register (preserves dot command): ciw<C-r>0<Esc>
 
 - Restricting a command
 
-let a = 1
-let b = 10
-let c = 100000
-
-
-# Dot Command
-It is like mini macros
-
-Ex:
 let a = 1
 let b = 10
 let c = 100000
@@ -116,7 +115,7 @@ Format: :[range|all_lines]g/{pattern}/{command}
 Examples:
 - append missing ";" add the end of the lets:
 
-:.+1,.+3g/let .*[^;]$/norm A;
+:.+1,.+3g/[^;]$/norm A;
 let a = 1
 let b = 10;
 let c = 100000
@@ -140,13 +139,10 @@ startlist
 'Australia'
 endlist
 
-Using register append to copy a series of lines
+Using append register to copy a series of lines
 
 reset register a: qaq
-/\vhas_one :\w*
-:g//y A
-
-%s//\=setreg('A', submatch(0))/n
+:g/has_one/d A
 
 class ApplicationRepresenter
   has_one :requester
@@ -170,7 +166,7 @@ recording a macro: q{register}{commands}q
 executing a macro: @{register}
 executing last macro: @@
 
-sequential vs parallel
+parallel vs sequential
 
 let a = 1
 let b = 10
@@ -189,9 +185,6 @@ green
 
 
 # argdo, cfdo, cdo, bufdo etc
-
-
-
 
 
 # Others
