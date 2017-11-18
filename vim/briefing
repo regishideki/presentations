@@ -77,24 +77,6 @@ let b = 10
 let c = 100000
 
 
-# Find/Replace
-- c tag to confirm, last search (or / register), dot command
-att
-pattern
-att
-
-- e tag and gn command
-att
-atts
-
-\v at the beginning when working with regex
-
-\zs start of the match
-\ze end of the match
-\s match space or tab
-\_s match space, tab or new line
-
-
 # Ex Commands
 Format: :[range|current_line]{command}
 
