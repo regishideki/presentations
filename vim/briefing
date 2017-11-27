@@ -22,7 +22,7 @@ upper case: append register
 
 accessing:
 "{register}p in normal mode
-<C-r>{register} in insert mode, ex mode, etc
+# <C-r>{register} in insert mode, ex mode, etc
 @{register} in Ex Mode to pass a register as reference (not value)
 
 special registers:
@@ -62,7 +62,8 @@ let c = 100000
 lead_id = 1
 application_id = 2
 
-PreQualification.new(application_id)
+Flub.new(application_id)
+Flab.new(application_id)
 
 warning: it causes side effect
 
@@ -148,13 +149,15 @@ recording a macro: q{register}{commands}q
 executing a macro: @{register}
 executing last macro: @@
 
-parallel vs sequential
+parallel vs sequential (I will show you only parallel version)
 
 let a = 1
 let b = 10
 let c = 100000
 let d = 100
 let e = 10000000
+
+how to edit a macro?
 
 series of numbers
 
@@ -173,7 +176,5 @@ green
 <C-a> increase a number
 <C-x> decrease a number
 application1 = FactoryGirl.create(:application)
-
-<C-r><C-w> use current word in find or commands
 
 Marks, vimscript, vimgrep
