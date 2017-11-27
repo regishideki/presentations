@@ -146,7 +146,7 @@ recording a macro: q{register}{commands}q
 executing a macro: @{register}
 executing last macro: @@
 
-parallel vs sequential (I will show you only parallel version)
+parallel vs sequential
 
 let a = 1
 let b = 10
