@@ -1,7 +1,4 @@
 # Introduction
-To download this presentation:
-curl <link here> > vim-presentation
-
 Source: Practical Vim: Edit Text at the Speed of Thought - Drew Neil
 
 To run some commands easily:
@@ -22,7 +19,7 @@ upper case: append register
 
 accessing:
 "{register}p in normal mode
-# <C-r>{register} in insert mode, ex mode, etc
+<C-r>{register} in insert mode, ex mode, etc
 @{register} in Ex Mode to pass a register as reference (not value)
 
 special registers:
@@ -178,3 +175,9 @@ green
 application1 = FactoryGirl.create(:application)
 
 Marks, vimscript, vimgrep
+
+
+# More
+- https://thoughtbot.com/upcase/the-art-of-vim
+- https://thoughtbot.com/upcase/onramp-to-vim
+- http://vimcasts.org/
