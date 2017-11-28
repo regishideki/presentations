@@ -78,7 +78,7 @@ let c = 100000
 # Ex Commands
 Format: :[range|current_line]{command}
 
-- all normal commands: yank, delete, move, print, etc (we can use it with registers)
+- all normal commands: yank, delete, move, etc
 
 - Example using normal mode to append something at the end of a line
 
@@ -174,7 +174,7 @@ green
 <C-x> decrease a number
 application1 = FactoryGirl.create(:application)
 
-Marks, vimscript, vimgrep
+Marks, vimscript, vimgrep (or Ag, Rg, etc), plugins
 
 
 # More
