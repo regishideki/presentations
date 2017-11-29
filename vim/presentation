@@ -122,7 +122,7 @@ endlist
 Using append register to copy a series of lines
 
 reset register a: qaq
-:g/has_one/d A
+:.+2,.+13g/has_one/d A
 
 class ApplicationRepresenter
   has_one :requester
@@ -174,7 +174,7 @@ green
 <C-x> decrease a number
 application1 = FactoryGirl.create(:application)
 
-Marks, vimscript, vimgrep (or Ag, Rg, etc), plugins
+vimgrep (or Ag, Rg, etc), plugins, marks, vimscript
 
 
 # More
