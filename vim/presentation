@@ -126,14 +126,10 @@ reset register a: qaq
 
 class ApplicationRepresenter
   has_one :requester
-
   attribute :purpose
-
   has_one :banco_pan_application
   has_one :discard
-
   has_many :documents
-
   has_one :scheduled_partner
 end
 
@@ -167,14 +163,6 @@ green
 
 
 # argdo, cfdo, cdo, bufdo etc
-
-
-# Others
-<C-a> increase a number
-<C-x> decrease a number
-application1 = FactoryGirl.create(:application)
-
-vimgrep (or Ag, Rg, etc), plugins, marks, vimscript
 
 
 # More
